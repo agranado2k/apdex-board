@@ -6,6 +6,28 @@ describe('Board', function() {
     expect(board.getOrCreateHostByName).toBeDefined();
   });
 
+  it('should create a Host', function() {
+    var board = new NewRelicChallenge.Board()
+    var hostName = '7e6272f7-098e.dakota.biz';
+
+    board.getOrCreateHostByName(hostName);
+
+    expect(board.hostsLength()).toBe(1);
+  });
+
+  it('should not create but get a existent Host', function() {
+    var board = new NewRelicChallenge.Board()
+    var hostName1 = '7e6272f7-098e.dakota.biz';
+    var hostName2 = '9a450527-cdd9.kareem.info';
+    var host1 = board.getOrCreateHostByName(hostName1);
+    var host2 = board.getOrCreateHostByName(hostName2);
+
+    var host = board.getOrCreateHostByName(hostName1);
+
+    expect(host).toBe(host1);
+    expect(board.hostsLength()).toBe(2);
+  });
+
   describe('Host', function() {
     it('should create object', function() {
       var name = '7e6272f7-098e.dakota.biz';
