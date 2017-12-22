@@ -1,0 +1,26 @@
+{
+  "name": "karma-bp",
+  "version": "1.0.0",
+  "description": "Base karma for test JS projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start karma.conf.js",
+    "full-test": "NODE_ENV=test ./node_modules/karma/bin/karma start karma.conf.js"
+  },
+  "keywords": [
+    "karma"
+  ],
+  "author": "Arthur Granado",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine-core": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.1",
+    "karma-fixture": "^0.2.6",
+    "karma-html2js-preprocessor": "^1.1.0",
+    "karma-jasmine": "^1.1.1",
+    "karma-json-fixtures-preprocessor": "0.0.6",
+    "karma-phantomjs-launcher": "^1.0.4"
+  }
+}
