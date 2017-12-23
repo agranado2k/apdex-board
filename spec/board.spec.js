@@ -58,4 +58,34 @@ describe('Board', function() {
     });
   });
 
+  describe('Remove App', function() {
+    var hostName = '7e6272f7-098e.dakota.biz';
+    var app_1, app_2;
+
+    beforeEach(function() {
+      app_1 = new NewRelicChallenge.Application(fixture.load('app_1.json'));
+
+      board.addAppToHost(hostName, app_1);
+    });
+
+    it('should remove an app from a host', function() {
+      var host = board.getOrCreateHostByName(hostName);
+
+      board.removeAppFromHost(hostName, app_1);
+
+      expect(host.apps.length).toBe(0);
+    });
+
+    it('should remove an app from hosts', function() {
+      var host_1 = board.getOrCreateHostByName(app_1.host[0]);
+      var host_2 = board.getOrCreateHostByName(app_1.host[1]);
+      var host_3 = board.getOrCreateHostByName(app_1.host[2]);
+
+      board.removeAppFromHosts(app_1);
+
+      expect(host_1.apps.length).toBe(0);
+      expect(host_2.apps.length).toBe(0);
+      expect(host_3.apps.length).toBe(0);
+    });
+  });
 });

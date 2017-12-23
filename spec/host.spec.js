@@ -48,4 +48,19 @@ describe('Host', function() {
       expect(host.apps[6].apdex).toBe(app_1.apdex);
     });
   });
+
+  describe('removeApp', function(){
+    var app_1;
+
+    beforeEach(function() {
+      app_1 = new NewRelicChallenge.Application(fixture.load('app_1.json'));
+      host.addApp(app_1);
+    });
+
+    it('should remove app from host app list', function(){
+      host.removeApp(app_1)
+
+      expect(host.apps.length).toBe(0);
+    });
+  });
 });
