@@ -88,4 +88,48 @@ describe('Board', function() {
       expect(host_3.apps.length).toBe(0);
     });
   });
+
+  describe('Get the top 25 most satisfying apps by host', function(){});
+
+
+  describe('Init Board', function() {
+    describe('Parse JSON', function(){
+      var app_1, app_3, app_4, app_6;
+      var json;
+      var host;
+
+      beforeEach(function() {
+        app_1 = new NewRelicChallenge.Application(fixture.load('app_1.json'));
+        app_3 = new NewRelicChallenge.Application(fixture.load('app_3.json'));
+        app_4 = new NewRelicChallenge.Application(fixture.load('app_4.json'));
+        app_6 = new NewRelicChallenge.Application(fixture.load('app_6.json'));
+
+        json =[app_1, app_3, app_4, app_6];
+
+        var hostName = 'e7bf58af-f0be.dallas.biz';
+        host = board.getOrCreateHostByName(hostName);
+      });
+
+      it('should include apps sorted in hosts', function(){
+        board.parseJSON(json, board);
+
+        expect(host.apps[0].apdex).toBe(app_4.apdex);
+        expect(host.apps[1].apdex).toBe(app_3.apdex);
+        expect(host.apps[2].apdex).toBe(app_6.apdex);
+        expect(host.apps[3].apdex).toBe(app_1.apdex);
+      });
+    });
+
+    it('should load hosts file', function(){
+       board.loadData(function(res){
+         expect(res.length).toBe(10000);
+       });
+    });
+
+    it('should create all hosts and include apps', function(){
+      board.initData();
+
+      expect(board.hostsLength()).toBeGreaterThan(0);
+    });
+  });
 });
