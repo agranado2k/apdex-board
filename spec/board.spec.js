@@ -89,8 +89,33 @@ describe('Board', function() {
     });
   });
 
-  describe('Get the top 25 most satisfying apps by host', function(){});
+  describe('Get the top 25 most satisfying apps by host', function(){
+      var hostName = 'e7bf58af-f0be.dallas.biz';
+      var app_1, app_3, app_4, app_6;
 
+      beforeEach(function() {
+        app_1 = new NewRelicChallenge.Application(fixture.load('app_1.json'));
+        app_3 = new NewRelicChallenge.Application(fixture.load('app_3.json'));
+        app_4 = new NewRelicChallenge.Application(fixture.load('app_4.json'));
+        app_6 = new NewRelicChallenge.Application(fixture.load('app_6.json'));
+
+        for(var i = 0; i < 10; i += 1){
+          board.addAppToHost(hostName, app_1);
+          board.addAppToHost(hostName, app_3);
+          board.addAppToHost(hostName, app_4);
+          board.addAppToHost(hostName, app_6);
+        }
+      });
+
+      it('should get 25 apps', function() {
+        top_25 = board.getAppsByHost(hostName)
+
+        expect(top_25.length).toBe(25);
+        expect(top_25[0].apdex).toBe(app_4.apdex);
+        expect(top_25[10].apdex).toBe(app_3.apdex);
+        expect(top_25[20].apdex).toBe(app_6.apdex);
+      });
+  });
 
   describe('Init Board', function() {
     describe('Parse JSON', function(){
@@ -118,12 +143,6 @@ describe('Board', function() {
         expect(host.apps[2].apdex).toBe(app_6.apdex);
         expect(host.apps[3].apdex).toBe(app_1.apdex);
       });
-    });
-
-    it('should load hosts file', function(){
-       board.loadData(function(res){
-         expect(res.length).toBe(10000);
-       });
     });
 
     it('should create all hosts and include apps', function(){
