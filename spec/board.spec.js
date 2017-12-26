@@ -151,4 +151,5 @@ describe('Board', function() {
       expect(board.hostsLength()).toBeGreaterThan(0);
     });
   });
+
 });

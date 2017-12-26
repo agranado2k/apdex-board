@@ -63,4 +63,27 @@ describe('Host', function() {
       expect(host.apps.length).toBe(0);
     });
   });
+
+  describe('View', function(){
+    describe('Add Host to View', function(){
+      var hostName = 'e7bf58af-f0be.dallas.biz';
+
+      it('create li tag with host information', function(){
+        var host = new NewRelicChallenge.Host(hostName);
+        var app_1 = new NewRelicChallenge.Application(fixture.load('app_1.json'));
+        var app_3 = new NewRelicChallenge.Application(fixture.load('app_3.json'));
+        var app_4 = new NewRelicChallenge.Application(fixture.load('app_4.json'));
+        var app_6 = new NewRelicChallenge.Application(fixture.load('app_6.json'));
+
+        host.addApp(app_1);
+        host.addApp(app_3);
+        host.addApp(app_4);
+        host.addApp(app_6);
+
+        var liHost = host.viewCreateHostTag();
+
+        expect(liHost).toContain('<li><span>'+ hostName +'</span><ul>'+app_4.viewCreateAppTag()+app_3.viewCreateAppTag()+app_6.viewCreateAppTag()+app_1.viewCreateAppTag() +'</ul></li>');
+      });
+    });
+  });
 });
