@@ -6,7 +6,7 @@ describe('Board', function() {
   });
 
   beforeEach(function(){
-    board = new NewRelicChallenge.Board()
+    board = new window.NewRelicChallenge.Board()
   });
 
   it('should create object', function() {
@@ -38,8 +38,8 @@ describe('Board', function() {
     var app_1, app_2;
 
     beforeEach(function() {
-      app_1 = new NewRelicChallenge.Application(fixture.load('app_1.json'));
-      app_2 = new NewRelicChallenge.Application(fixture.load('app_2.json'));
+      app_1 = new window.NewRelicChallenge.Application(fixture.load('app_1.json'));
+      app_2 = new window.NewRelicChallenge.Application(fixture.load('app_2.json'));
     });
 
     it('should add an app to a host', function() {
@@ -63,7 +63,7 @@ describe('Board', function() {
     var app_1, app_2;
 
     beforeEach(function() {
-      app_1 = new NewRelicChallenge.Application(fixture.load('app_1.json'));
+      app_1 = new window.NewRelicChallenge.Application(fixture.load('app_1.json'));
 
       board.addAppToHost(hostName, app_1);
     });
@@ -94,10 +94,10 @@ describe('Board', function() {
       var app_1, app_3, app_4, app_6;
 
       beforeEach(function() {
-        app_1 = new NewRelicChallenge.Application(fixture.load('app_1.json'));
-        app_3 = new NewRelicChallenge.Application(fixture.load('app_3.json'));
-        app_4 = new NewRelicChallenge.Application(fixture.load('app_4.json'));
-        app_6 = new NewRelicChallenge.Application(fixture.load('app_6.json'));
+        app_1 = new window.NewRelicChallenge.Application(fixture.load('app_1.json'));
+        app_3 = new window.NewRelicChallenge.Application(fixture.load('app_3.json'));
+        app_4 = new window.NewRelicChallenge.Application(fixture.load('app_4.json'));
+        app_6 = new window.NewRelicChallenge.Application(fixture.load('app_6.json'));
 
         for(var i = 0; i < 10; i += 1){
           board.addAppToHost(hostName, app_1);
@@ -118,16 +118,21 @@ describe('Board', function() {
   });
 
   describe('Init Board', function() {
+    beforeEach(function() {
+      var fixture = '<ul id="hostList"></ul>';
+      document.body.insertAdjacentHTML('afterbegin', fixture);
+    });
+
     describe('Parse JSON', function(){
       var app_1, app_3, app_4, app_6;
       var json;
       var host;
 
       beforeEach(function() {
-        app_1 = new NewRelicChallenge.Application(fixture.load('app_1.json'));
-        app_3 = new NewRelicChallenge.Application(fixture.load('app_3.json'));
-        app_4 = new NewRelicChallenge.Application(fixture.load('app_4.json'));
-        app_6 = new NewRelicChallenge.Application(fixture.load('app_6.json'));
+        app_1 = new window.NewRelicChallenge.Application(fixture.load('app_1.json'));
+        app_3 = new window.NewRelicChallenge.Application(fixture.load('app_3.json'));
+        app_4 = new window.NewRelicChallenge.Application(fixture.load('app_4.json'));
+        app_6 = new window.NewRelicChallenge.Application(fixture.load('app_6.json'));
 
         json =[app_1, app_3, app_4, app_6];
 
@@ -144,12 +149,23 @@ describe('Board', function() {
         expect(host.apps[3].apdex).toBe(app_1.apdex);
       });
     });
-
-    it('should create all hosts and include apps', function(){
-      board.initData();
-
-      expect(board.hostsLength()).toBeGreaterThan(0);
-    });
   });
 
+  describe('View', function(){
+    beforeEach(function() {
+      var fixtureHTML = '<ul id="hostList"></ul>';
+      document.body.insertAdjacentHTML('afterbegin', fixtureHTML);
+
+      var hostName = 'e7bf58af-f0be.dallas.biz';
+      var host = board.getOrCreateHostByName(hostName);
+      var app = new window.NewRelicChallenge.Application(fixture.load('app_1.json'));
+      host.addApp(app);
+    });
+
+    it('should insert HTML host list to board view', function() {
+      board.createBoard();
+
+     expect(board.element('hostList').innerHTML).toContain('dallas.biz');
+    });
+  });
 });

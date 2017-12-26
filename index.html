@@ -1,11 +1,34 @@
 <html>
 	<head>
-		<title>Magic Calculator</title>
+		<title>New Relic - Board of Apps by Host</title>
+    <link rel="stylesheet" href="board.css">
 	</head>
 	<body>
+    <div class="container">
+      <div class="row header">
+        <div class="col-2 title">
+            Apps by Host
+        </div>
+        <div class="col-2 text-right user-email truncate">
+          for user averylongemailadress@companyname.com
+        </div>
+        <div class="col-2 text-right checkbox">
+          <input type="checkbox" name="list" id="list" value="list" /> Show as an awesome grid
+        </div>
+      </div>
+      <div class="row">
+        <div id="hostList" class="col-6">
+        </div>
+      </div>
+    </div>
 		<script type="text/javascript" src="lib/host-app-data.js"></script>
 		<script type="text/javascript" src="lib/application.js"></script>
 		<script type="text/javascript" src="lib/host.js"></script>
 		<script type="text/javascript" src="lib/board.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      window.onload = function(){
+        window.NewRelicChallenge.init();
+      };
+    </script>
 	</body>
 </html>

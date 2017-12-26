@@ -1,0 +1,139 @@
+@font-face {
+  font-family: "HelveticaNeue-Bold";
+  src: url("fonts/Helvetica_Neue_LT_Std/HelveticaNeueLTStd-Bd.otf");
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("fonts/Helvetica_Neue_LT_Std/HelveticaNeueLTStd-Lt.otf");
+}
+
+body {
+  background: #F9F9FA;
+}
+
+.container{
+    width: 840px;
+    margin: 0 auto;
+}
+
+.container *{
+  box-sizing: border-box; 
+}
+
+/*-- our cleafix hack -- */
+.row:before,
+.row:after {
+    content:"";
+    display: table ;
+    clear:both;
+}
+
+[class*='col-'] {
+    float: left;
+    min-height: 1px;
+    width: 16.66%;
+}
+
+.col-1{ width: 16.66%; }
+.col-2{ width: 33.33%; }
+.col-3{ width: 50%;    }
+.col-4{ width: 66.66%; }
+.col-5{ width: 83.33%; }
+.col-6{ width: 100%;   }
+
+.header {
+}
+
+.text-right {
+  text-align: right;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title {
+  font-family: 'HelveticaNeue-Bold';
+  font-size: 35px;
+  color: #000000;
+  line-height: 43px;
+}
+
+.user-email {
+  font-family: 'HelveticaNeue';
+  font-size: 18px;
+  color: #000000;
+  line-height: 22px;
+
+  width: 285px;
+}
+
+.checkbox {
+  margin-left: 30px;
+
+  width: 241px;
+}
+
+.card {
+  padding: 30px;
+  margin: 30px 0;
+  background-color: #ffffff;
+}
+
+.host-info {
+  font-family: 'HelveticaNeue-Bold';
+  font-size: 16px;
+  color: #000000;
+  line-height: 19px;
+
+  margin: 0;
+}
+
+.app-list {
+  margin: 0;
+}
+
+.app-info {
+  font-family: 'HelveticaNeue';
+  font-size: 16px;
+  color: #4A4A4A;
+  line-height: 19px;
+
+  list-style: none;
+  left: -40px;
+  position: relative;
+  margin: 23px 0 0;
+}
+
+.app-apdex {
+  font-family: 'HelveticaNeue-Bold';
+  font-size: 13px;
+  color: #4A4A4A;
+  line-height: 19px;
+  opacity: 0.62;
+  margin-right: 15px;
+}
+
+.app-name {
+  font-family: 'HelveticaNeue';
+  font-size: 16px;
+  color: #4A4A4A;
+  line-height: 19px;
+
+}
+
+.outline, .outline *{
+    outline: 1px solid #F6A1A1;
+}
+
+/*-- some extra column content styling --*/
+[class*='col-'] > p {
+   background-color: #FFC2C2;
+   padding: 0;
+   margin: 0;
+   text-align: center;
+   color: white;
+}
