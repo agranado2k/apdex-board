@@ -148,6 +148,7 @@ body {
   color: #4A4A4A;
   line-height: 19px;
   padding-left: 15px;
+  cursor: pointer;
 
   width: 96%;
 }

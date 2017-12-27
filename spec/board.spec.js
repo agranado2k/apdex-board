@@ -143,10 +143,10 @@ describe('Board', function() {
       it('should include apps sorted in hosts', function(){
         board.parseJSON(json, board);
 
-        expect(host.apps[0].apdex).toBe(app_4.apdex);
-        expect(host.apps[1].apdex).toBe(app_3.apdex);
-        expect(host.apps[2].apdex).toBe(app_6.apdex);
-        expect(host.apps[3].apdex).toBe(app_1.apdex);
+        expect(host.apps[0].apdex).toBe(app_1.apdex);
+        expect(host.apps[1].apdex).toBe(app_6.apdex);
+        expect(host.apps[2].apdex).toBe(app_3.apdex);
+        expect(host.apps[3].apdex).toBe(app_4.apdex);
       });
     });
   });

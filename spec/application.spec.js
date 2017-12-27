@@ -16,11 +16,15 @@ describe('Application', function() {
   describe('View', function(){
     describe('Add App to View', function(){
       it('create li tag with app information', function(){
+        var expectedHTML = '<li class="app-info">\
+<div class="app-apdex">68</div>\
+<div class="app-name">Small Fresh Pants - Kautzer - Boyer, and Sons</div>\
+</li>';
         var app = new window.NewRelicChallenge.Application(fixture.load('app_1.json'));
 
         var liApp = app.viewCreateAppTag();
 
-        expect(liApp).toContain('<li class="app-info"><div class="app-apdex">68</div><div class="app-name">Small Fresh Pants - Kautzer - Boyer, and Sons</div></li>');
+        expect(liApp).toContain(expectedHTML);
       });
     });
   });
