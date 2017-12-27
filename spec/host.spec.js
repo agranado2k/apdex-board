@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Host', function() {
   var app_1, host;
 

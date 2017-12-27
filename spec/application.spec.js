@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Application', function() {
   var application, json;
   beforeEach(function() {

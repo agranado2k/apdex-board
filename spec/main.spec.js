@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Main', function(){
   var fixtureHTML;
 

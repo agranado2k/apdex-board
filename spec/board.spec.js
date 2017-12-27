@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Board', function() {
   var board;
 
@@ -108,7 +110,7 @@ describe('Board', function() {
       });
 
       it('should get 25 apps', function() {
-        top_25 = board.getAppsByHost(hostName)
+        var top_25 = board.getAppsByHost(hostName)
 
         expect(top_25.length).toBe(25);
         expect(top_25[0].apdex).toBe(app_1.apdex);
