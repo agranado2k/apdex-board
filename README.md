@@ -1,4 +1,4 @@
-#Apdex Board
+# Apdex Board
 
 ### How to configure the app
 Execute the command inside the project root folder:
