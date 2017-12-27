@@ -20,7 +20,7 @@ describe('Application', function() {
 
         var liApp = app.viewCreateAppTag();
 
-        expect(liApp).toContain('<li class="app-info"><span class="app-apdex">68</span><span class="app-name">Small Fresh Pants - Kautzer - Boyer, and Sons</span></li>');
+        expect(liApp).toContain('<li class="app-info"><div class="app-apdex">68</div><div class="app-name">Small Fresh Pants - Kautzer - Boyer, and Sons</div></li>');
       });
     });
   });

@@ -9,7 +9,7 @@
 }
 
 body {
-  background: #F9F9FA;
+  background-color: #EAEAEA;
 }
 
 .container{
@@ -43,6 +43,7 @@ body {
 .col-6{ width: 100%;   }
 
 .header {
+  margin: 0 30px;
 }
 
 .text-right {
@@ -68,19 +69,36 @@ body {
   color: #000000;
   line-height: 22px;
 
-  width: 285px;
+  width: 303px;
+  line-height: 43px;
+}
+
+.user-email-grid {
+  width: 388px;
 }
 
 .checkbox {
   margin-left: 30px;
+  line-height: 43px;
+  font-size: 12px;
 
-  width: 241px;
+  width: 187px;
+}
+
+.checkbox-grid {
+  width: 102px;
 }
 
 .card {
   padding: 30px;
-  margin: 30px 0;
+  margin: 30px;
   background-color: #ffffff;
+}
+
+.grid {
+  margin: 30px 0 0 30px;
+  width: 375px;
+  float: left;
 }
 
 .host-info {
@@ -94,6 +112,8 @@ body {
 
 .app-list {
   margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 
 .app-info {
@@ -103,9 +123,12 @@ body {
   line-height: 19px;
 
   list-style: none;
-  left: -40px;
   position: relative;
   margin: 23px 0 0;
+}
+
+.app-info-grid {
+  min-height: 40px;
 }
 
 .app-apdex {
@@ -114,7 +137,9 @@ body {
   color: #4A4A4A;
   line-height: 19px;
   opacity: 0.62;
-  margin-right: 15px;
+
+  float: left;
+  width: 4%;
 }
 
 .app-name {
@@ -122,7 +147,13 @@ body {
   font-size: 16px;
   color: #4A4A4A;
   line-height: 19px;
+  padding-left: 15px;
 
+  width: 96%;
+}
+
+.app-name-grid {
+  float: left;
 }
 
 .outline, .outline *{

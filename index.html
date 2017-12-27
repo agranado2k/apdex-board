@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title>New Relic - Board of Apps by Host</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="board.css">
 	</head>
 	<body>
@@ -9,11 +10,14 @@
         <div class="col-2 title">
             Apps by Host
         </div>
-        <div class="col-2 text-right user-email truncate">
+        <div id="userEmailColumn" class="col-2 text-right user-email truncate">
           for user averylongemailadress@companyname.com
         </div>
-        <div class="col-2 text-right checkbox">
-          <input type="checkbox" name="list" id="list" value="list" /> Show as an awesome grid
+        <div id="checkboxColumn" class="col-2 text-right checkbox">
+          <input type="checkbox" name="viewMode" id="viewMode" checked="false" /> 
+          <label id="checkboxLabel">
+            Show as an awesome grid
+          </label>
         </div>
       </div>
       <div class="row">
@@ -25,6 +29,7 @@
 		<script type="text/javascript" src="lib/application.js"></script>
 		<script type="text/javascript" src="lib/host.js"></script>
 		<script type="text/javascript" src="lib/board.js"></script>
+		<script type="text/javascript" src="lib/main.js"></script>
     <script type="text/javascript" charset="utf-8">
       window.onload = function(){
         window.NewRelicChallenge.init();
