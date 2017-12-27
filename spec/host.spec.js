@@ -39,13 +39,13 @@ describe('Host', function() {
       host.addApp(app_6);
       host.addApp(app_7);
 
-      expect(host.apps[0].apdex).toBe(app_4.apdex);
-      expect(host.apps[1].apdex).toBe(app_5.apdex);
-      expect(host.apps[2].apdex).toBe(app_2.apdex);
+      expect(host.apps[0].apdex).toBe(app_1.apdex);
+      expect(host.apps[1].apdex).toBe(app_6.apdex);
+      expect(host.apps[2].apdex).toBe(app_3.apdex);
       expect(host.apps[3].apdex).toBe(app_7.apdex);
-      expect(host.apps[4].apdex).toBe(app_3.apdex);
-      expect(host.apps[5].apdex).toBe(app_6.apdex);
-      expect(host.apps[6].apdex).toBe(app_1.apdex);
+      expect(host.apps[4].apdex).toBe(app_2.apdex);
+      expect(host.apps[5].apdex).toBe(app_5.apdex);
+      expect(host.apps[6].apdex).toBe(app_4.apdex);
     });
   });
 
@@ -82,7 +82,7 @@ describe('Host', function() {
 
         var liHost = host.viewCreateHostTag();
 
-        expect(liHost).toContain('<div class="card"><h4 class="host-info">'+ hostName +'</h4><ul class="app-list">'+app_4.viewCreateAppTag()+app_3.viewCreateAppTag()+app_6.viewCreateAppTag()+app_1.viewCreateAppTag() +'</ul></div>');
+        expect(liHost).toContain('<div class="card"><h4 class="host-info">'+ hostName +'</h4><ul class="app-list">'+app_1.viewCreateAppTag()+app_6.viewCreateAppTag()+app_3.viewCreateAppTag()+app_4.viewCreateAppTag() +'</ul></div>');
       });
     });
   });

@@ -111,9 +111,9 @@ describe('Board', function() {
         top_25 = board.getAppsByHost(hostName)
 
         expect(top_25.length).toBe(25);
-        expect(top_25[0].apdex).toBe(app_4.apdex);
-        expect(top_25[10].apdex).toBe(app_3.apdex);
-        expect(top_25[20].apdex).toBe(app_6.apdex);
+        expect(top_25[0].apdex).toBe(app_1.apdex);
+        expect(top_25[10].apdex).toBe(app_6.apdex);
+        expect(top_25[20].apdex).toBe(app_3.apdex);
       });
   });
 
