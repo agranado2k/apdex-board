@@ -18,7 +18,7 @@ describe('Application', function() {
       it('create li tag with app information', function(){
         var expectedHTML = '<li class="app-info">\
 <div class="app-apdex">68</div>\
-<div class="app-name">Small Fresh Pants - Kautzer - Boyer, and Sons</div>\
+<div class="app-name" data-version="7">Small Fresh Pants - Kautzer - Boyer, and Sons</div>\
 </li>';
         var app = new window.NewRelicChallenge.Application(fixture.load('app_1.json'));
 
