@@ -1,5 +1,18 @@
 # Apdex Board
 
+### Feedbacks to improve the project
+
+* Only used plain JS, no build tooling, no ES6, just multiple script tags
+in the HTML
+* Instead of using classes uses old-style functions + prototype to mimic
+classes.
+* Everything is exposed in window.NewrelicChallenge. Even prototype methods
+are namespaced like window.NewrelicChallenge.ApdexBoard.prototype.foo.
+* Public Sauce Labs API key is exposed in the config.
+* Overcomplicated configuration for testing.
+* No organization of convention in CSS.
+
+
 ### How to configure the app
 Execute the command inside the project root folder:
 ```
